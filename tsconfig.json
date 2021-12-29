@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "esnext",
+        "moduleResolution": "node",
+
+        "outDir": "./types/",
+        "declaration": true,
+        "emitDeclarationOnly": false,
+        "sourceMap": true,
+
+        "strict": true,
+        "noImplicitAny": false,
+        "allowJs": false,
+        "downlevelIteration": true,
+
+        "resolveJsonModule": false,
+
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
