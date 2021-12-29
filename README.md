@@ -1,11 +1,12 @@
 # es-support
-A library which detects if the environment code supports the wanted ES version or ES features.
+A library which detects if the environment code supports the wanted ES version
+or ES features.
 
 This is a very light library (~16KB) without any dependencies.
 
 ## Purpose
 
-This library is mainly to check that the environment (browser or node) can run
+This library is mainly to check that the environment (browser or NodeJs) can run
 the code in the ES version which is developed.
 
 Its main purpose is to provide a message to user that its environment is too
@@ -58,7 +59,25 @@ if (failed.length) {
 
 ## What about Modernizr?
 
+* Modernizr is much heavier (but it does more things)
+* It doesn't seems to be updated with latest ES features (I have not seen how
+to check BigInt support)
+* It cannot checks several features easily (like is the user browser supports
+ES2020 features? you should explain them all explicitly (if it is possible))
 
+The purpose of es-support is not to replace Modernizr, and so it won't
+add classes in order to adapt CSS. If it is what you want you should add them
+on your own.
+
+### Why not using Babel or any other transpilers?
+
+Transpilers rewrite code to another ES version (for example ES2018).
+But you may want to warn users with browsers which don't support these ES
+versions that it won't work and explain why.
+
+You may also want to avoid the usage of such libraries because they are quite
+heavy but you still want to inform your user that some features won't work if
+they do not update their environment (browser or NodeJs).
 
 ## Installation
 
