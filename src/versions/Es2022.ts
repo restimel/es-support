@@ -2,7 +2,7 @@ import { buildDict } from '@/common';
 import { CheckFeature } from '@/Types';
 
 const list: Map<string, CheckFeature> = new Map([
-    ['classPrivateField', function(): boolean {
+    ['class-private-field', function(): boolean {
         try {
             eval(`
 class Test {
@@ -18,7 +18,7 @@ new Test();`);
         }
     }],
 
-    ['classStaticField', function(): boolean {
+    ['class-static-field', function(): boolean {
         try {
             return eval(`
 class Test {
@@ -30,7 +30,7 @@ Test.val === 1;`);
         }
     }],
 
-    ['classStaticBlock', function(): boolean {
+    ['class-static-block', function(): boolean {
         try {
             return eval(`
 class Test {
@@ -46,7 +46,7 @@ Test.twiceVal === 2;`);
         }
     }],
 
-    ['regexpIndicesFlag', function(): boolean {
+    ['regexp-indices-flag', function(): boolean {
         try {
             eval('/test/d');
             return true;
@@ -55,12 +55,12 @@ Test.twiceVal === 2;`);
         }
     }],
 
-    ['arrayAt', function(): boolean {
+    ['array-at', function(): boolean {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return typeof ([] as any).at === 'function';
     }],
 
-    ['ObjectHasOwn', function(): boolean {
+    ['object-hasown', function(): boolean {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return typeof (Object as any).hasOwn === 'function';
     }],
@@ -68,4 +68,4 @@ Test.twiceVal === 2;`);
     /* Top level await (for import) */
 ]);
 
-export default buildDict(list, ['ES2022', 'ES13']);
+export default buildDict(list, ['es-2022', 'es-13']);

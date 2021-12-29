@@ -6,7 +6,7 @@ const list: Map<string, CheckFeature> = new Map([
         return typeof [].includes === 'function';
     }],
 
-    ['exponentiationOperator', function(): boolean {
+    ['exponentiation-operator', function(): boolean {
         try {
             eval('10 ** 2');
             return true;
@@ -15,7 +15,7 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['exponentiationAssignation', function(): boolean {
+    ['exponentiation-assignation', function(): boolean {
         try {
             eval('var a = 10; a **= 2;');
             return true;
@@ -25,4 +25,4 @@ const list: Map<string, CheckFeature> = new Map([
     }],
 ]);
 
-export default buildDict(list, ['ES2016', 'ES7']);
+export default buildDict(list, ['es-2016', 'es-7']);

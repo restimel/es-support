@@ -2,7 +2,7 @@ import { buildDict } from '@/common';
 import { CheckFeature } from '@/Types';
 
 const list: Map<string, CheckFeature> = new Map([
-    ['asyncAwait', function(): boolean {
+    ['async-await', function(): boolean {
         try {
             eval(`
 async function test() {
@@ -14,23 +14,23 @@ async function test() {
         }
     }],
 
-    ['objectEntries', function(): boolean {
+    ['object-entries', function(): boolean {
         return typeof Object.entries === 'function';
     }],
 
-    ['objectValues', function(): boolean {
+    ['object-values', function(): boolean {
         return typeof Object.values === 'function';
     }],
 
-    ['stringPadStart', function(): boolean {
+    ['string-padstart', function(): boolean {
         return typeof ''.padStart === 'function';
     }],
 
-    ['stringPadEnd', function(): boolean {
+    ['string-padend', function(): boolean {
         return typeof ''.padEnd === 'function';
     }],
 
-    ['functionTrailingComma', function(): boolean {
+    ['function-trailingcomma', function(): boolean {
         try {
             eval('function test(a,b,) {}');
             return true;
@@ -39,17 +39,17 @@ async function test() {
         }
     }],
 
-    ['objectGetOwnPropertyDescriptors', function(): boolean {
+    ['object-getownpropertydescriptors', function(): boolean {
         return typeof Object.getOwnPropertyDescriptors === 'function';
     }],
 
-    ['SharedArrayBuffer', function(): boolean {
+    ['sharedarraybuffer', function(): boolean {
         return typeof SharedArrayBuffer === 'function';
     }],
 
-    ['Atomics', function(): boolean {
+    ['atomics', function(): boolean {
         return typeof Atomics === 'function';
     }],
 ]);
 
-export default buildDict(list, ['ES2017', 'ES8']);
+export default buildDict(list, ['es-2017', 'es-8']);

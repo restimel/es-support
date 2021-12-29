@@ -4,3 +4,4 @@ export declare function checkFeature(featureName: string, feature: CheckFeature,
 export declare function checkFeature(featureName: string, feature: CheckFeature, details: boolean): boolean | string[];
 export declare function checkList(list: Map<string, CheckFeature>, details?: boolean): boolean | string[];
 export declare function buildDict(list: Map<string, CheckFeature>, names: string[], additional?: MapFeature): MapFeature;
+export declare function normalizeFeatureName(name: string): string;

@@ -2,7 +2,7 @@ import { buildDict } from '@/common';
 import { CheckFeature } from '@/Types';
 
 const list: Map<string, CheckFeature> = new Map([
-    ['regexpSingleLineFlag', function(): boolean {
+    ['regexp-single-line-flag', function(): boolean {
         try {
             eval('/test/s');
             return true;
@@ -11,7 +11,7 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['regexpNamedGroup', function(): boolean {
+    ['regexp-named-group', function(): boolean {
         try {
             eval('/(?<test>test)/');
             return true;
@@ -20,7 +20,7 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['regexpLookBehind', function(): boolean {
+    ['regexp-lookbehind', function(): boolean {
         try {
             eval('/(?<=test)test)/');
             eval('/(?<!test)test)/');
@@ -30,7 +30,7 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['regexpUnicodePropertyEscape', function(): boolean {
+    ['regexp-unicode-property-escape', function(): boolean {
         try {
             eval('/\\p{Alphabetic}\\P{Script=Greek}/');
             return true;
@@ -39,7 +39,7 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['objectSpread', function(): boolean {
+    ['object-spread', function(): boolean {
         try {
             eval('var o1 = {a: 1, b: 2}; var a = {...o1, c: 3};');
             return true;
@@ -48,7 +48,7 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['objectRestInitialization', function(): boolean {
+    ['object-rest-initialization', function(): boolean {
         try {
             eval('var {a, ...n} = {a: 1, b: 2, c: 3};');
             return true;
@@ -57,12 +57,12 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['promiseFinally', function(): boolean {
+    ['promise-finally', function(): boolean {
         const p = Promise.resolve(1);
         return typeof p.finally === 'function';
     }],
 
-    ['asynchronousIteration', function(): boolean {
+    ['asynchronous-iteration', function(): boolean {
         try {
             eval(`
 function *test () {
@@ -78,7 +78,7 @@ function *test () {
         }
     }],
 
-    ['tagTemplateLiteralRevision', function(): boolean {
+    ['tag-template-literal-revision', function(): boolean {
         try {
             eval('var test = function() {}; test`\\ultimate`');
             return true;
@@ -89,4 +89,4 @@ function *test () {
 
 ]);
 
-export default buildDict(list, ['ES2018', 'ES9']);
+export default buildDict(list, ['es-2018', 'es-9']);

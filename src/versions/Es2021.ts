@@ -5,7 +5,7 @@ declare var WeakRef: any;
 declare var FinalizationRegistry: any;
 
 const list: Map<string, CheckFeature> = new Map([
-    ['logicalAssignmentOr', function(): boolean {
+    ['logical-assignment-or', function(): boolean {
         try {
             eval('var test = 0; test ||= 1;');
             return true;
@@ -14,7 +14,7 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['logicalAssignmentAnd', function(): boolean {
+    ['logical-assignment-and', function(): boolean {
         try {
             eval('var test = 0; test &&= 1;');
             return true;
@@ -23,7 +23,7 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['logicalAssignmentNullish', function(): boolean {
+    ['logical-assignment-nullish', function(): boolean {
         try {
             eval('var test = 0; test ??= 1;');
             return true;
@@ -32,7 +32,7 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['numericSeparator', function(): boolean {
+    ['numeric-separator', function(): boolean {
         try {
             eval('1_000_000.123_456');
             return true;
@@ -41,11 +41,11 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['stringReplaceAll', function(): boolean {
+    ['string-replaceall', function(): boolean {
         return typeof ('' as any).replaceAll === 'function';
     }],
 
-    ['weakRef', function(): boolean {
+    ['weakref', function(): boolean {
         return typeof WeakRef === 'function';
     }],
 
@@ -53,11 +53,11 @@ const list: Map<string, CheckFeature> = new Map([
         return typeof FinalizationRegistry === 'function';
     }],
 
-    ['promiseAny', function(): boolean {
+    ['promise-any', function(): boolean {
         return typeof (Promise && (Promise as any).any) === 'function';
     }],
 
-    ['intlListFormat', function(): boolean {
+    ['intl-listformat', function(): boolean {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return typeof (Intl && (Intl as any).ListFormat) === 'function';
     }],

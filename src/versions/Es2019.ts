@@ -2,31 +2,31 @@ import { buildDict } from '@/common';
 import { CheckFeature } from '@/Types';
 
 const list: Map<string, CheckFeature> = new Map([
-    ['stringTrimStart', function(): boolean {
+    ['string-trimStart', function(): boolean {
         return typeof ''.trimStart === 'function';
     }],
 
-    ['stringTrimEnd', function(): boolean {
+    ['string-trimEnd', function(): boolean {
         return typeof ''.trimEnd === 'function';
     }],
 
-    ['objectFromEntries', function(): boolean {
+    ['object-fromentries', function(): boolean {
         return typeof Object.fromEntries === 'function';
     }],
 
-    ['arrayFlat', function(): boolean {
+    ['array-flat', function(): boolean {
         return typeof [].flat === 'function';
     }],
 
-    ['arrayFlatMap', function(): boolean {
+    ['array-flatmap', function(): boolean {
         return typeof [].flatMap === 'function';
     }],
 
-    ['symbolDescription', function(): boolean {
+    ['symbol-description', function(): boolean {
         return Symbol && Symbol('e').description === 'e';
     }],
 
-    ['stringLineSeparator', function(): boolean {
+    ['string-line-separator', function(): boolean {
         try {
             /* \u2028 → line separator
             * \u2029 → paragraph separator */
@@ -37,7 +37,7 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['optionalCatch', function(): boolean {
+    ['optional-catch', function(): boolean {
         try {
             eval('try { "" } catch { "" }');
             return true;
@@ -46,17 +46,17 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['jsonUTF8', function(): boolean {
+    ['json-utf8', function(): boolean {
         return JSON.stringify('\uD83D') === '"\\ud83d"';
     }],
 
 
 /* Correct Array sort is not checkable */
 
-    ['functionToString', function(): boolean {
+    ['function-tostring', function(): boolean {
         const str = 'function /* a comment */ foo() { "" }';
         return eval(`${str} foo.toString() === '${str}'`);
     }],
 ]);
 
-export default buildDict(list, ['ES2019', 'ES10']);
+export default buildDict(list, ['es-2019', 'es-10']);

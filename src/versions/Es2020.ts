@@ -2,7 +2,7 @@ import { buildDict } from '@/common';
 import { CheckFeature } from '@/Types';
 
 const list: Map<string, CheckFeature> = new Map([
-    ['bigInt', function(): boolean {
+    ['bigint', function(): boolean {
         if (typeof BigInt !== 'function') {
             return false;
         }
@@ -14,7 +14,7 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['nullishCoalescing', function(): boolean {
+    ['operator-nullish-coalescing', function(): boolean {
         try {
             eval('var test = null ?? 42;');
             return true;
@@ -23,7 +23,7 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['optionalChaining', function(): boolean {
+    ['operator-optional-chaining', function(): boolean {
         try {
             eval('var test = {}; test?.a;');
             return true;
@@ -32,15 +32,15 @@ const list: Map<string, CheckFeature> = new Map([
         }
     }],
 
-    ['promiseAllSettled', function(): boolean {
+    ['promise-allsettled', function(): boolean {
         return typeof (Promise && Promise.allSettled) === 'function';
     }],
 
-    ['stringMatchAll', function(): boolean {
+    ['string-matchall', function(): boolean {
         return typeof ''.matchAll === 'function';
     }],
 
-    ['globalThis', function(): boolean {
+    ['globalthis', function(): boolean {
         return typeof globalThis !== 'undefined';
     }],
 
@@ -51,4 +51,4 @@ const list: Map<string, CheckFeature> = new Map([
 
 ]);
 
-export default buildDict(list, ['ES2020', 'ES11']);
+export default buildDict(list, ['es-2020', 'es-11']);

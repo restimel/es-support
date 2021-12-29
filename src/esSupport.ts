@@ -1,4 +1,7 @@
-import { checkFeature } from '@/common';
+import {
+    checkFeature,
+    normalizeFeatureName,
+} from '@/common';
 import es2015 from '@/versions/Es2015';
 import es2016 from '@/versions/Es2016';
 import es2017 from '@/versions/Es2017';
@@ -30,7 +33,8 @@ const mapFeature: MapFeature = {
 function checkFeatureName(featureName: string, details?: false): boolean;
 function checkFeatureName(featureName: string, details: true): string[];
 function checkFeatureName(featureName: string, details = false): boolean | string[] {
-    const checker = mapFeature[featureName];
+    const normalizeName = normalizeFeatureName(featureName);
+    const checker = mapFeature[normalizeName];
 
     if (!checker) {
         return details ? [featureName] : false;
@@ -87,7 +91,8 @@ function add (featureList: Feature[]): void;
 function add (feature: Feature | Feature[]): void {
     const featureList = Array.isArray(feature) ? feature : [feature];
     for (const featureItem of featureList) {
-        mapFeature[featureItem.name] = featureItem.test;
+        const name = normalizeFeatureName(featureItem.name);
+        mapFeature[name] = featureItem.test;
     }
 }
 

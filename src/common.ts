@@ -39,10 +39,16 @@ export function checkList(list: Map<string, CheckFeature>, details?: boolean): b
 export function buildDict(list: Map<string, CheckFeature>, names: string[], additional: MapFeature = {}): MapFeature {
     const finalDict: MapFeature = {...additional};
     for (const [featureName, feature] of list) {
-        finalDict[featureName] = feature;
+        finalDict[normalizeFeatureName(featureName)] = feature;
     }
     for (const name of names) {
-        finalDict[name] = (details?: boolean): boolean | string[] => checkList(list, details);
+        finalDict[normalizeFeatureName(name)] = (details?: boolean): boolean | string[] => checkList(list, details);
     }
     return finalDict;
+}
+
+export function normalizeFeatureName(name: string) {
+    const kebabName = name.trim().replace(/[-\s_]+|(es)(\d)/ig, '$1-$2');
+    const lowName = kebabName.toLowerCase();
+    return lowName;
 }
