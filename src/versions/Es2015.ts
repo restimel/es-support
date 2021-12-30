@@ -304,7 +304,7 @@ test() === 1;`);
         return typeof (Intl && Intl.DateTimeFormat) === 'function';
     }],
 
-    /* Modules */
+    /* module: Modules */
 ]);
 
 export default buildDict(list, ['es-2015', 'es-6']);

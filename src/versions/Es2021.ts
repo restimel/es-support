@@ -62,10 +62,14 @@ const list: Map<string, CheckFeature> = new Map([
         return typeof (Intl && (Intl as any).ListFormat) === 'function';
     }],
 
-    /* Intl.DateTimeFormat properties: dateStyle and timeStyle */
+    /* intl-datetimeformat: Intl.DateTimeFormat properties: dateStyle and timeStyle */
 
 ]);
 
-export default buildDict(list, ['ES2021', 'ES12'], {
-    'logicalAssignment': ['logicalAssignmentOr', 'logicalAssignmentAnd', 'logicalAssignmentNullish'],
+export default buildDict(list, ['es-2021', 'es-12'], {
+    'logical-assignment': [
+        'logical-assignment-or',
+        'logical-assignment-and',
+        'logical-assignment-nullish',
+    ],
 });

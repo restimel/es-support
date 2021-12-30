@@ -44,10 +44,10 @@ const list: Map<string, CheckFeature> = new Map([
         return typeof globalThis !== 'undefined';
     }],
 
-    /* dynamic import */
-    /* module namespace export */
-    /* for-in order */
-    /* import.meta issue about how to test it because it needs to be inside module */
+    /* import-dynamic: dynamic import */
+    /* import-meta: import.meta issue about how to test it because it needs to be inside module */
+    /* export-namespace: module namespace export */
+    /* for-in-order-revision: for-in order */
 
 ]);
 

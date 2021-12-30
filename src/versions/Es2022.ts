@@ -65,7 +65,7 @@ Test.twiceVal === 2;`);
         return typeof (Object as any).hasOwn === 'function';
     }],
 
-    /* Top level await (for import) */
+    /* await-top-level: Top level await (for import) */
 ]);
 
 export default buildDict(list, ['es-2022', 'es-13']);

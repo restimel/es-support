@@ -50,13 +50,13 @@ const list: Map<string, CheckFeature> = new Map([
         return JSON.stringify('\uD83D') === '"\\ud83d"';
     }],
 
-
-/* Correct Array sort is not checkable */
-
-    ['function-tostring', function(): boolean {
+    ['function-tostring-revision', function(): boolean {
         const str = 'function /* a comment */ foo() { "" }';
         return eval(`${str} foo.toString() === '${str}'`);
     }],
+
+    /* array-sort-revision: Correct Array sort is not checkable */
+
 ]);
 
 export default buildDict(list, ['es-2019', 'es-10']);

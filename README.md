@@ -113,6 +113,8 @@ includes all feature tests about ES2021).
 
 Names are case insensitive, so it can be written either `'es2022'` or `'ES2022'`.
 
+You can read the [Features guide](./doc/features.md) to know all available values.
+
 ### returnTypes
 
 Depending of this value the output is changed.
@@ -133,7 +135,12 @@ It is possible to add your own tests or to override existing ones.
 ```javascript
 esSupport.add({
     name: 'custom-test',
-    test: () => { return true; },
+    test: () => {
+        if (supported) {
+            return true;
+        }
+        return false;
+    },
 })
 ```
 
