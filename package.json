@@ -1,6 +1,6 @@
 {
   "name": "es-support",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library which detects if the environment code supports the wanted ES version or ES features.",
   "main": "dist/esSupport.js",
   "types": "types/esSupport.d.ts",
