@@ -2,7 +2,7 @@
 A library which detects if the environment code supports the wanted ES version
 or ES features.
 
-This is a very light library (~16KB) without any dependencies.
+This is a very light library (~17KB) without any dependencies.
 
 ## Purpose
 
@@ -57,6 +57,13 @@ if (failed.length) {
 }
 ```
 
+## Some cool features
+
+* Typescript is natively supported
+* Easy to use and to know which features are failing
+* Possibility to add your own tests or to override existing ones
+* very light library without any dependencies
+
 ## What about Modernizr?
 
 * Modernizr is much heavier (but it does more things)
@@ -73,11 +80,23 @@ on your own.
 
 Transpilers rewrite code to another ES version (for example ES2018).
 But you may want to warn users with browsers which don't support these ES
-versions that it won't work and explain why.
+versions that it won't work and explain why (even if they represent a very
+small amount of your visitors).
 
 You may also want to avoid the usage of such libraries because they are quite
 heavy but you still want to inform your user that some features won't work if
 they do not update their environment (browser or NodeJs).
+
+### Why not using navigator.userAgent (browser only)?
+
+Because this string is not reliable. And this is not a recommended solution.
+
+Many browsers (like Vivaldi, Brave, ...) change this value in order to mimic
+dominant browser, and you will probably forget to test some newly created
+browser (that you don't know yet) but they can run on your site perfectly.
+
+Moreover this string may change on each browser version and so it is hard to
+maintain.
 
 ## Installation
 
@@ -94,13 +113,7 @@ or
 const esSupport = require('es-support');
 ```
 
-## Some cool features
-
-* Typescript is natively supported
-* Easy to use and to know which feature are failing
-* Possibility to add your own tests or to override existing ones
-
-## Options
+## How to use it?
 
 The syntax is `esSupport(feature, returnType)`.
 
