@@ -15,7 +15,7 @@ fallback.
 
 It can check the compatibility of a full ES version or only some feature part.
 
-## Example
+## Examples
 
 ### Loading code only if it is supported
 
@@ -38,7 +38,7 @@ console but there is no ugly error (like syntax error).
 const val1 = '1234567890123450000';
 const val2 = '100';
 const reference = '1234567890123450050'
-if (esSupport(['bigInt'])) {
+if (esSupport('BigInt')) {
     return BigInt(val1) + BigInt(val2) > BigInt(reference);
 } else {
     return Number(val1) + Number(val2) > Number(reference);
@@ -64,9 +64,11 @@ if (failed.length) {
 * Possibility to add your own tests or to override existing ones
 * very light library without any dependencies
 
+For information, the executed code is transpiled to run for ES5.
+
 ## What about Modernizr?
 
-* Modernizr is much heavier (but it does more things)
+* Modernizr is much heavier (but it also does different tasks)
 * It doesn't seems to be updated with latest ES features (I have not seen how
 to check BigInt support)
 * It cannot checks several features easily (like is the user browser supports
@@ -78,9 +80,10 @@ on your own.
 
 ### Why not using Babel or any other transpilers?
 
-Transpilers rewrite code to another ES version (for example ES2018).
-But you may want to warn users with browsers which don't support these ES
-versions that it won't work and explain why (even if they represent a very
+Transpilers rewrite code to another ES version (for example ES2018) because all
+features cannot be transpiled to ES5 (for example BigInt cannot be transpiled).
+But you may want to warn users with old environement which don't support these
+ES versions that it won't work and explain why (even if they represent a very
 small amount of your visitors).
 
 You may also want to avoid the usage of such libraries because they are quite
@@ -93,10 +96,10 @@ Because this string is not reliable. And this is not a recommended solution.
 
 Many browsers (like Vivaldi, Brave, ...) change this value in order to mimic
 dominant browser, and you will probably forget to test some newly created
-browser (that you don't know yet) but they can run on your site perfectly.
+browsers (that you don't know yet) but they can run on your site perfectly.
 
-Moreover this string may change on each browser version and so it is hard to
-maintain.
+Moreover this string may change on each browser version and so it is quite
+annoying to maintain.
 
 ## Installation
 
@@ -115,11 +118,11 @@ const esSupport = require('es-support');
 
 ## How to use it?
 
-The syntax is `esSupport(feature, returnType)`.
+The syntax is `esSupport(<featureName>, <returnType>)`.
 
-### feature
+### featureName
 
-It can be the name of a feature or a list of feature.
+It can be the name of a feature or a list of feature names.
 
 Some of them includes several other features (like `'ES2021'` or `ES12` which
 includes all feature tests about ES2021).
@@ -130,7 +133,7 @@ You can read the [Features guide](./doc/features.md) to know all available value
 
 ### returnTypes
 
-Depending of this value the output is changed.
+Depending on this value the output is changed.
 
 * `'boolean'` _(default)_: returns true if all features are supported.
     Returns false if at least one feature is not supported.
@@ -145,6 +148,8 @@ Depending of this value the output is changed.
 
 It is possible to add your own tests or to override existing ones.
 
+Syntax is `esSupport.add(<feature>)`
+
 ```javascript
 esSupport.add({
     name: 'custom-test',
@@ -154,7 +159,10 @@ esSupport.add({
         }
         return false;
     },
-})
+});
+
+// later it can be checked with:
+esSupport('custom-text');
 ```
 
 The argument can be a Feature object or an array of Feature objects (to add
