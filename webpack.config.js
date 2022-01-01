@@ -20,6 +20,7 @@ module.exports = {
     output: {
         filename: 'esSupport.js',
         path: path.resolve(__dirname, 'dist'),
+        globalObject: 'typeof globalThis !== \'undefined\' ? globalThis : typeof self !== \'undefined\' ? self : this',
         library: {
             name: 'es-support',
             type: 'umd',
