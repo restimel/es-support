@@ -270,3 +270,37 @@ test('should consider as false a missing feature', () => {
     expect(feature).toEqual(['doNotExist']);
     expect(details).toEqual(['doNotExist']);
 });
+
+test('should normalize feature name', () => {
+    const cb1 = jest.fn(() => true);
+    const cb2 = jest.fn(() => false);
+    esSupport.add([{
+        name: 'es1',
+        test: cb1,
+    }, {
+        name: 'test-withUppercase',
+        test: cb2,
+    }, {
+        name: 'listUpper',
+        test: ['ES1', 'TEST-WITHUPPERCASE'],
+    }, {
+        name: 'listspace',
+        test: ['es 1', 'test_withuppercase'],
+    }]);
+
+    esSupport(['ES1', 'TEST-WITHUPPERCASE']);
+    expect(cb1.mock.calls.length).toBe(1);
+    expect(cb2.mock.calls.length).toBe(1);
+
+    esSupport(['Es_1', 'Test withUpperCase']);
+    expect(cb1.mock.calls.length).toBe(2);
+    expect(cb2.mock.calls.length).toBe(2);
+
+    esSupport(['eS-1', 'tEst_wiThupPercAse']);
+    expect(cb1.mock.calls.length).toBe(3);
+    expect(cb2.mock.calls.length).toBe(3);
+
+    esSupport(['es\t1', 'TEST_ - withuppercase']);
+    expect(cb1.mock.calls.length).toBe(4);
+    expect(cb2.mock.calls.length).toBe(4);
+});

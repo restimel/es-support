@@ -20,8 +20,7 @@ good way to do that you can do a pool request to improve the code 😊).
 <a name="es2015"></a>
 ## ES2015
 
-* es-2015 (or es2015)
-* es-6 (or es6)
+* es-2015, es2015, es-6 or es6
 * const
 * let
 * template-literal
@@ -81,8 +80,7 @@ good way to do that you can do a pool request to improve the code 😊).
 <a name="es2016"></a>
 ## ES2016
 
-* es-2016 (or es2016)
-* es-7 (or es7)
+* es-2016, es2016, es-7 or es7
 * arrayincludes
 * exponentiation-operator
 * exponentiation-assignation
@@ -90,8 +88,7 @@ good way to do that you can do a pool request to improve the code 😊).
 <a name="es2017"></a>
 ## ES2017
 
-* es-2017 (or es2017)
-* es-8 (or es8)
+* es-2017, es2017, es-8 or es8
 * async-await
 * object-entries
 * object-values
@@ -105,8 +102,7 @@ good way to do that you can do a pool request to improve the code 😊).
 <a name="es2018"></a>
 ## ES2018
 
-* es-2018 (or es2018)
-* es-9 (or es9)
+* es-2018, es2018, es-9 or es9
 * regexp-single-line-flag
 * regexp-named-group
 * regexp-lookbehind
@@ -120,8 +116,7 @@ good way to do that you can do a pool request to improve the code 😊).
 <a name="es2019"></a>
 ## ES2019
 
-* es-2019 (or es2019)
-* es-10 (or es10)
+* es-2019, es2019, es-10 or es10
 * string-trimstart
 * string-trimend
 * object-fromentries
@@ -137,8 +132,7 @@ good way to do that you can do a pool request to improve the code 😊).
 <a name="es2020"></a>
 ## ES2020
 
-* es-2020 (or es2020)
-* es-11 (or es11)
+* es-2020, es2020, es-11 or es11
 * bigint
 * operator-nullish-coalescing
 * operator-optional-chaining
@@ -153,8 +147,7 @@ good way to do that you can do a pool request to improve the code 😊).
 <a name="es2021"></a>
 ## ES2021
 
-* es-2021 (or es2021)
-* es-12 (or es12)
+* es-2021, es2021, es-12 or es12
 * logical-assignment
 * logical-assignment-or
 * logical-assignment-and
@@ -165,13 +158,13 @@ good way to do that you can do a pool request to improve the code 😊).
 * finalizer
 * promise-any
 * intl-listformat
-* <strike>intl-datetimeformat</strike>
+* <strike>intl-datetimeformat-dateStyle</strike>
+* <strike>intl-datetimeformat-timeStyle</strike>
 
 <a name="es2022"></a>
 ## ES2022
 
-* es-2022 (or es2022)
-* es-13 (or es13)
+* es-2022, es2022, es-13 or es13
 * class-private-field
 * class-static-field
 * class-static-block

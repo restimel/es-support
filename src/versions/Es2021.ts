@@ -62,7 +62,8 @@ const list: Map<string, CheckFeature> = new Map([
         return typeof (Intl && (Intl as any).ListFormat) === 'function';
     }],
 
-    /* intl-datetimeformat: Intl.DateTimeFormat properties: dateStyle and timeStyle */
+    /* intl-datetimeformat-dateStyle: Intl.DateTimeFormat property: dateStyle */
+    /* intl-datetimeformat:timeStyle: Intl.DateTimeFormat properties: timeStyle */
 
 ]);
 
