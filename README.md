@@ -13,7 +13,8 @@ Its main purpose is to provide a message to user that its environment is too
 old (displaying that message is not part of this library) or to propose a
 fallback.
 
-It can check the compatibility of a full ES version or only some feature part.
+It can check the compatibility of a full ES version or check only some listed
+features.
 
 ## Examples
 
@@ -25,7 +26,7 @@ import esSupport from 'es-support';
 if (esSupport('ES2020')) {
     import(/* webpackChunkName: "app" */ './mainApp');
 } else {
-    console.error('Your environment does not support ES2020')
+    console.error('Your environment does not support ES2020');
 }
 ```
 In this example, the application code will be loaded only if the
@@ -37,7 +38,7 @@ console but there is no ugly error (like syntax error).
 ```javascript
 const val1 = '1234567890123450000';
 const val2 = '100';
-const reference = '1234567890123450050'
+const reference = '1234567890123450050';
 if (esSupport('BigInt')) {
     return BigInt(val1) + BigInt(val2) > BigInt(reference);
 } else {
@@ -48,12 +49,12 @@ In this example, the fallback gives a similar operation but may failed if
 values are greater than Number.MAX_SAFE_INTEGER (which is the case in this
 example).
 
-### Knowing which feature are not supported
+### Knowing which features are not supported
 
 ```javascript
-const failed = esSupport.check(['ES2020', 'ES2021', 'ES2022'], 'details'));
-if (failed.length) {
-    console.log('These features are not supported: ', failed.join(', '));
+const failedFeatures = esSupport.check(['ES2020', 'ES2021', 'ES2022'], 'details'));
+if (failedFeatures.length > 0) {
+    console.log('These features are not supported: ', failedFeatures.join(', '));
 }
 ```
 
@@ -82,7 +83,7 @@ on your own.
 
 Transpilers rewrite code to another ES version (for example ES2018) because all
 features cannot be transpiled to ES5 (for example BigInt cannot be transpiled).
-But you may want to warn users with old environement which don't support these
+But you may want to warn users with old environment which don't support these
 ES versions that it won't work and explain why (even if they represent a very
 small amount of your visitors).
 
@@ -104,7 +105,7 @@ annoying to maintain.
 ## Installation
 
 ```console
-$ npm install --save es-lint
+$ npm install --save es-support
 ```
 
 Then you can import it in your files.
@@ -124,8 +125,8 @@ The syntax is `esSupport(<featureName>, <returnType>)`.
 
 It can be the name of a feature or a list of feature names.
 
-Some of them includes several other features (like `'ES2021'` or `ES12` which
-includes all feature tests about ES2021).
+Some of them includes several other features like `'ES2021'` (or `ES12`) which
+includes all feature tests about ES2021.
 
 Names are case insensitive, so it can be written either `'es2022'` or `'ES2022'`.
 
@@ -183,6 +184,6 @@ sub-features tested).
 ## Contribution
 
 Please make a pool request if you have found issues or if there are some
-missing features.
+missing test features.
 
 https://github.com/restimel/es-support/issues
