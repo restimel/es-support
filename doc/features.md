@@ -17,23 +17,26 @@ The feature names which are <strike>stroked</strike> are not implemented
 test features, because they are currently not easily checkable (if you find a
 good way to do that you can do a pool request to improve the code 😊).
 
+The feature name followed by _<span style="color: yellow">*</span>_ means that
+their tests are using `eval` (and so may not work depending on CSP policy).
+
 <a name="es2015"></a>
 ## ES2015
 
 * es-2015, es2015, es-6 or es6
-* const
-* let
-* template-literal
-* tag-template-literal
-* arrow-function
-* spread-operator
-* rest-parameter
-* destructuring-assignment
-* class
+* const _<span style="color: yellow">*</span>_
+* let _<span style="color: yellow">*</span>_
+* template-literal _<span style="color: yellow">*</span>_
+* tag-template-literal _<span style="color: yellow">*</span>_
+* arrow-function _<span style="color: yellow">*</span>_
+* spread-operator _<span style="color: yellow">*</span>_
+* rest-parameter _<span style="color: yellow">*</span>_
+* destructuring-assignment _<span style="color: yellow">*</span>_
+* class _<span style="color: yellow">*</span>_
 * symbol
-* function-default-value
-* generator
-* iterator
+* function-default-value _<span style="color: yellow">*</span>_
+* generator _<span style="color: yellow">*</span>_
+* iterator _<span style="color: yellow">*</span>_
 * promise
 * proxy
 * reflect
@@ -82,19 +85,19 @@ good way to do that you can do a pool request to improve the code 😊).
 
 * es-2016, es2016, es-7 or es7
 * array-includes
-* exponentiation-operator
-* exponentiation-assignation
+* exponentiation-operator _<span style="color: yellow">*</span>_
+* exponentiation-assignation _<span style="color: yellow">*</span>_
 
 <a name="es2017"></a>
 ## ES2017
 
 * es-2017, es2017, es-8 or es8
-* async-await
+* async-await _<span style="color: yellow">*</span>_
 * object-entries
 * object-values
 * string-padstart
 * string-padend
-* function-trailingcomma
+* function-trailingcomma _<span style="color: yellow">*</span>_
 * object-getownpropertydescriptors
 * sharedarraybuffer
 * atomics
@@ -107,11 +110,11 @@ good way to do that you can do a pool request to improve the code 😊).
 * regexp-named-group
 * regexp-look-behind
 * regexp-unicode-property-escape
-* object-spread
-* object-rest-initialization
+* object-spread _<span style="color: yellow">*</span>_
+* object-rest-initialization _<span style="color: yellow">*</span>_
 * promise-finally
-* asynchronous-iteration
-* tag-template-literal-revision
+* asynchronous-iteration _<span style="color: yellow">*</span>_
+* tag-template-literal-revision _<span style="color: yellow">*</span>_
 
 <a name="es2019"></a>
 ## ES2019
@@ -123,10 +126,10 @@ good way to do that you can do a pool request to improve the code 😊).
 * array-flat
 * array-flatmap
 * symbol-description
-* string-line-separator
-* optional-catch
+* string-line-separator _<span style="color: yellow">*</span>_
+* optional-catch _<span style="color: yellow">*</span>_
 * json-utf8
-* function-tostring-revision
+* function-tostring-revision _<span style="color: yellow">*</span>_
 * <strike>array-sort-revision</strike>
 
 <a name="es2020"></a>
@@ -134,8 +137,9 @@ good way to do that you can do a pool request to improve the code 😊).
 
 * es-2020, es2020, es-11 or es11
 * bigint
-* operator-nullish-coalescing
-* operator-optional-chaining
+* bigint-literal _<span style="color: yellow">*</span>_
+* operator-nullish-coalescing _<span style="color: yellow">*</span>_
+* operator-optional-chaining _<span style="color: yellow">*</span>_
 * promise-allsettled
 * string-matchall
 * globalthis
@@ -148,11 +152,11 @@ good way to do that you can do a pool request to improve the code 😊).
 ## ES2021
 
 * es-2021, es2021, es-12 or es12
-* logical-assignment
-* logical-assignment-or
-* logical-assignment-and
-* logical-assignment-nullish
-* numeric-separator
+* logical-assignment _<span style="color: yellow">*</span>_
+* logical-assignment-or _<span style="color: yellow">*</span>_
+* logical-assignment-and _<span style="color: yellow">*</span>_
+* logical-assignment-nullish _<span style="color: yellow">*</span>_
+* numeric-separator _<span style="color: yellow">*</span>_
 * string-replaceall
 * weakref
 * finalizer
@@ -165,9 +169,9 @@ good way to do that you can do a pool request to improve the code 😊).
 ## ES2022
 
 * es-2022, es2022, es-13 or es13
-* class-private-field
-* class-static-field
-* class-static-block
+* class-private-field _<span style="color: yellow">*</span>_
+* class-static-field _<span style="color: yellow">*</span>_
+* class-static-block _<span style="color: yellow">*</span>_
 * regexp-indices-flag
 * array-at
 * object-hasown

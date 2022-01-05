@@ -181,6 +181,30 @@ A boolean argument is provided, which means that we asked for details (and so
 a list is expected as result, but it may return a boolean if there is no
 sub-features tested).
 
+## Known issues
+
+If your site is using Content Security Policy (CSP) and forbid the usage of
+`eval`, then some tests may fail (by throwing an error).
+```error
+Uncaught EvalError: Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of script in the following Content Security Policy directive: "script-src XXX"
+```
+
+Indeed in order to test some particular syntax that environment may not known
+`eval` is used in many tests.
+
+You can find the list of all features which are tested with `eval` in the
+[Features guide](./doc/features.md) where the name are follwed by
+_<span style="color: yellow">*</span>_.
+
+Possible fix:
+
+* Change your CSP configuration, to accept `eval` for the bundle which
+contains es-support.
+* Do not use the features wich are using `eval`.
+* or, Override these features with functions which return `true` (if you find
+a way to test the feature without using eval, you can send it via pool request
+to improve the code 😊).
+
 ## Contribution
 
 Please make a pool request if you have found issues or if there are some

@@ -3,9 +3,10 @@ import { CheckFeature } from '@/Types';
 
 const list: Map<string, CheckFeature> = new Map([
     ['bigint', function(): boolean {
-        if (typeof BigInt !== 'function') {
-            return false;
-        }
+        return typeof BigInt === 'function';
+    }],
+
+    ['bigint-literal', function(): boolean {
         try {
             eval('var test = 10n;');
             return true;

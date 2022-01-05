@@ -48,7 +48,7 @@ Test.twiceVal === 2;`);
 
     ['regexp-indices-flag', function(): boolean {
         try {
-            eval('/test/d');
+            new RegExp('test', 'd');
             return true;
         } catch(err) {
             return false;

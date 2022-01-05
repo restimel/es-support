@@ -32,7 +32,7 @@ const list: Map<string, CheckFeature> = new Map([
 
     ['regexp-unicode-property-escape', function(): boolean {
         try {
-            eval('/\\p{Alphabetic}\\P{Script=Greek}/');
+            new RegExp('\\p{Alphabetic}\\P{Script=Greek}');
             return true;
         } catch(err) {
             return false;
@@ -80,7 +80,7 @@ function *test () {
 
     ['tag-template-literal-revision', function(): boolean {
         try {
-            eval('var test = function() {}; test`\\ultimate`');
+            eval('var test = function() {}; test`\\unicode`');
             return true;
         } catch(err) {
             return false;
