@@ -4,7 +4,7 @@ import { CheckFeature } from '@/Types';
 const list: Map<string, CheckFeature> = new Map([
     ['regexp-single-line-flag', function(): boolean {
         try {
-            eval('/test/s');
+            new RegExp('test', 's');
             return true;
         } catch(err) {
             return false;
@@ -13,17 +13,17 @@ const list: Map<string, CheckFeature> = new Map([
 
     ['regexp-named-group', function(): boolean {
         try {
-            eval('/(?<test>test)/');
+            new RegExp('(?<test>test)');
             return true;
         } catch(err) {
             return false;
         }
     }],
 
-    ['regexp-lookbehind', function(): boolean {
+    ['regexp-look-behind', function(): boolean {
         try {
-            eval('/(?<=test)test)/');
-            eval('/(?<!test)test)/');
+            new RegExp('(?<=test)test');
+            new RegExp('(?<!test)test');
             return true;
         } catch(err) {
             return false;

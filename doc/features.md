@@ -105,7 +105,7 @@ good way to do that you can do a pool request to improve the code 😊).
 * es-2018, es2018, es-9 or es9
 * regexp-single-line-flag
 * regexp-named-group
-* regexp-lookbehind
+* regexp-look-behind
 * regexp-unicode-property-escape
 * object-spread
 * object-rest-initialization
