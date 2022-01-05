@@ -48,7 +48,7 @@ async function test() {
     }],
 
     ['atomics', function(): boolean {
-        return typeof Atomics === 'function';
+        return typeof Atomics === 'object';
     }],
 ]);
 
