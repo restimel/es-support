@@ -108,7 +108,8 @@ new Test2();`);
 
     ['function-default-value', function(): boolean {
         try {
-            return eval('function test(a = 42) {}');
+            eval('function test(a = 42) {}');
+            return true;
         } catch(err) {
             return false;
         }

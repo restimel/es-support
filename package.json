@@ -13,7 +13,8 @@
     "build:ts": "tsc -p .",
     "build:bundle": "webpack --config webpack.config.js",
     "pack": "npm run build && npm pack",
-    "test": "npm run build && jest"
+    "test": "npm run build && npm run test:unit",
+    "test:unit": "jest"
   },
   "repository": {
     "type": "git",

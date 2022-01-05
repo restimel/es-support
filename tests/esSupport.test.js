@@ -304,3 +304,10 @@ test('should normalize feature name', () => {
     expect(cb1.mock.calls.length).toBe(4);
     expect(cb2.mock.calls.length).toBe(4);
 });
+
+test('should run existing ES tests', () => {
+    expect(() => esSupport([
+        'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020',
+        'ES2021', 'ES2022',
+    ])).not.toThrow();
+});
