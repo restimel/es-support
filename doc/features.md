@@ -81,7 +81,7 @@ good way to do that you can do a pool request to improve the code 😊).
 ## ES2016
 
 * es-2016, es2016, es-7 or es7
-* arrayincludes
+* array-includes
 * exponentiation-operator
 * exponentiation-assignation
 

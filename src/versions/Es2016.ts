@@ -2,7 +2,7 @@ import { buildDict } from '@/common';
 import { CheckFeature } from '@/Types';
 
 const list: Map<string, CheckFeature> = new Map([
-    ['arrayIncludes', function(): boolean {
+    ['array-includes', function(): boolean {
         return typeof [].includes === 'function';
     }],
 
