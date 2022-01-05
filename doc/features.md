@@ -35,8 +35,9 @@ their tests are using `eval` (and so may not work depending on CSP policy).
 * class _<span style="color: yellow">*</span>_
 * symbol
 * function-default-value _<span style="color: yellow">*</span>_
+* iterator
 * generator _<span style="color: yellow">*</span>_
-* iterator _<span style="color: yellow">*</span>_
+* operator-of _<span style="color: yellow">*</span>_
 * promise
 * proxy
 * reflect

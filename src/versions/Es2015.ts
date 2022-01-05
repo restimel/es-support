@@ -115,20 +115,24 @@ new Test2();`);
         }
     }],
 
+    ['iterator', function(): boolean {
+        return typeof (Symbol && Symbol.iterator) === 'symbol';
+    }],
+
     ['generator', function(): boolean {
         try {
             return eval(`
-function *test() {
-    yield 1;
-    return 2;
+function* gen() {
+  yield 1;
+  return 2;
 }
-test() === 1;`);
+typeof gen()[Symbol.iterator] === 'function';`);
         } catch(err) {
             return false;
         }
     }],
 
-    ['iterator', function(): boolean {
+    ['operator-of', function(): boolean {
         try {
             eval('for(var a of [1, 2, 3]) {}');
             return true;
