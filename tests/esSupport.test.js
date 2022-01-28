@@ -311,3 +311,26 @@ test('should run existing ES tests', () => {
         'ES2021', 'ES2022',
     ])).not.toThrow();
 });
+
+test('should allow to change default feature', () => {
+    const featureRef = 'exponentiation-operator';
+    let called = false;
+    const previousResult = esSupport(featureRef);
+    const previousResultGlobal = esSupport(['ES2016']);
+    esSupport.add([{
+        name: featureRef,
+        test: () => {
+            called = true;
+            return !previousResult;
+        },
+    }]);
+
+    const result1 = esSupport(featureRef);
+    expect(called).toBe(true);
+    expect(result1).toBe(!previousResult);
+
+    called = false;
+    const result2 = esSupport(['ES2016']);
+    expect(called).toBe(true);
+    expect(result2).toBe(previousResultGlobal && !previousResult);
+});

@@ -17,32 +17,13 @@ export function checkFeature(featureName: string, feature: CheckFeature, details
     return result.length === 0;
 }
 
-export function checkList(list: Map<string, CheckFeature>, details?: boolean): boolean | string[] {
-    if (details) {
-        const errorList: string[] = [];
-        for (const [featureName, subFeature] of list) {
-            const result = checkFeature(featureName, subFeature, true);
-            errorList.push(...result);
-        }
-        return errorList;
-    } else {
-        for (const [, subFeature] of list) {
-            const result = checkFeature('', subFeature, false);
-            if (!result) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-
 export function buildDict(list: Map<string, CheckFeature>, names: string[], additional: MapFeature = {}): MapFeature {
     const finalDict: MapFeature = {...additional};
     for (const [featureName, feature] of list) {
         finalDict[normalizeFeatureName(featureName)] = feature;
     }
     for (const name of names) {
-        finalDict[normalizeFeatureName(name)] = (details?: boolean): boolean | string[] => checkList(list, details);
+        finalDict[normalizeFeatureName(name)] = Array.from(list.keys());
     }
     return finalDict;
 }
