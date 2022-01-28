@@ -181,6 +181,31 @@ A boolean argument is provided, which means that we asked for details (and so
 a list is expected as result, but it may return a boolean if there is no
 sub-features tested).
 
+## Disabling features
+
+It is possible to disable a feature with `disable` method.
+A disabled feature won't be called and will be considered as valid.
+
+It is possible to re-enable a feature with `enable` method.
+
+Both methods accept as argument the feature name or a list of feature names.
+
+```javascript
+/* Disable BigInt and globalThis */
+esSupport.disable(['BigInt', 'globalthis']);
+
+esSupport('ES2020'); // will return true even if BigInt and globalThis are not supported (if other ES2020 features are supported)
+
+esSupport('BigInt'); // will always return true because the feature is disabled
+
+/* Re-enable BigInt */
+esSupport.enable('BigInt');
+
+esSupport('BigInt'); // will return true only if it is supported
+esSupport('globalThis'); // will always return true because the feature is still disabled
+
+```
+
 ## Known issues
 
 If your site is using Content Security Policy (CSP) and forbid the usage of

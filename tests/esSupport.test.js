@@ -258,7 +258,6 @@ test('should return details list', () => {
     expect(complex4).toEqual(['test2']);
 });
 
-
 test('should consider as false a missing feature', () => {
     const defaultRst = esSupport('doNotExist');
     const bool = esSupport('doNotExist', 'boolean');
@@ -333,4 +332,50 @@ test('should allow to change default feature', () => {
     const result2 = esSupport(['ES2016']);
     expect(called).toBe(true);
     expect(result2).toBe(previousResultGlobal && !previousResult);
+});
+
+test('should disable features', () => {
+    let called1 = false;
+    let called2 = false;
+    let called3 = false;
+    esSupport.add([{
+        name: 'test-1',
+        test: () => {
+            called1 = true;
+            return true;
+        },
+    }, {
+        name: 'test-2',
+        test: () => {
+            called2 = true;
+            return true;
+        },
+    }, {
+        name: 'test-3',
+        test: () => {
+            called3 = true;
+            return true;
+        },
+    }]);
+
+    esSupport.disable(['test-1', 'TEST 3']);
+    const result1 = esSupport(['test-1', 'test-2', 'test-3']);
+    // add test normalize
+
+    expect(called1).toBe(false);
+    expect(called2).toBe(true);
+    expect(called3).toBe(false);
+    expect(result1).toBe(true);
+
+    called1 = false;
+    called2 = false;
+    called3 = false;
+
+    esSupport.enable(['teSt 1', 'test-2']);
+    const result2 = esSupport(['test-1', 'test-2', 'test-3']);
+
+    expect(called1).toBe(true);
+    expect(called2).toBe(true);
+    expect(called3).toBe(false);
+    expect(result2).toBe(true);
 });

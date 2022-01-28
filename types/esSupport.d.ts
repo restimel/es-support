@@ -19,5 +19,7 @@ declare namespace check {
         (feature: Feature): void;
         (featureList: Feature[]): void;
     };
+    var disable: (features: string | string[]) => void;
+    var enable: (features: string | string[]) => void;
 }
 export default check;

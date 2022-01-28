@@ -30,10 +30,15 @@ const mapFeature: MapFeature = {
     ...es2022,
 };
 
+const disabledFeatures = new Set();
+
 function checkFeatureName(featureName: string, details?: false): boolean;
 function checkFeatureName(featureName: string, details: true): string[];
 function checkFeatureName(featureName: string, details = false): boolean | string[] {
     const normalizeName = normalizeFeatureName(featureName);
+    if (disabledFeatures.has(normalizeName)) {
+        return true;
+    }
     const checker = mapFeature[normalizeName];
 
     if (!checker) {
@@ -82,11 +87,17 @@ function check (feature: string | string[], returnType: 'feature' | 'details' | 
 
 /**
  * Add feature to the check list or override existing feature.
- * @param {Feature | Feature[]} feature describe a feature to check the support
+ * @param {Feature} feature describe a feature to check the support
  * @param Feature.name feature name which is used to do the test
  * @param Feature.test the test which is called to assert the feature is supported
  */
 function add (feature: Feature): void;
+/**
+ * Add features to the check list or override existing features.
+ * @param {Feature[]} featureList describe each feature to check the support
+ * @param Feature.name feature name which is used to do the test
+ * @param Feature.test the test which is called to assert the feature is supported
+ */
 function add (featureList: Feature[]): void;
 function add (feature: Feature | Feature[]): void {
     const featureList = Array.isArray(feature) ? feature : [feature];
@@ -96,6 +107,28 @@ function add (feature: Feature | Feature[]): void {
     }
 }
 
+/**
+ * Disable some features to not check them
+ * @param {String|String[]} features list of feature names that should not be check.
+ */
+function disable(features: string | string[]): void {
+    const list = Array.isArray(features) ? features : [features];
+
+    list.forEach((name) => disabledFeatures.add(normalizeFeatureName(name)));
+}
+
+/**
+ * Re-enable features to check them again
+ * @param {String|String[]} features list of feature names that can be check.
+ */
+function enable(features: string | string[]): void {
+    const list = Array.isArray(features) ? features : [features];
+
+    list.forEach((name) => disabledFeatures.delete(normalizeFeatureName(name)));
+}
+
 check.add = add;
+check.disable = disable;
+check.enable = enable;
 
 export default check;
