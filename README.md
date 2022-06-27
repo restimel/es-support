@@ -4,6 +4,8 @@ or ES features.
 
 This is a very light library (~17KB) without any dependencies.
 
+[![npm](https://img.shields.io/npm/v/es-support.svg)](https://www.npmjs.com/package/es-support)
+
 ## Purpose
 
 This library is mainly to check that the environment (browser or NodeJs) can run
@@ -52,7 +54,7 @@ example).
 ### Knowing which features are not supported
 
 ```javascript
-const failedFeatures = esSupport.check(['ES2020', 'ES2021', 'ES2022'], 'details'));
+const failedFeatures = esSupport(['ES2020', 'ES2021', 'ES2022'], 'details'));
 if (failedFeatures.length > 0) {
     console.log('These features are not supported: ', failedFeatures.join(', '));
 }
@@ -218,14 +220,14 @@ Indeed in order to test some particular syntax that environment may not known
 `eval` is used in many tests.
 
 You can find the list of all features which are tested with `eval` in the
-[Features guide](./doc/features.md) where the name are follwed by
+[Features guide](./doc/features.md) where the name are followed by
 _<span style="color: yellow">*</span>_.
 
 Possible fix:
 
 * Change your CSP configuration, to accept `eval` for the bundle which
 contains es-support.
-* Do not use the features wich are using `eval`.
+* Do not use the features which are using `eval`.
 * or, Override these features with functions which return `true` (if you find
 a way to test the feature without using eval, you can send it via pool request
 to improve the code 😊).
